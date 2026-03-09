@@ -1,0 +1,99 @@
+// ═══════════════════════════════════════════
+// Design Tokens — Monash Chat
+// Auto-imported into every SCSS module via
+// vite.config.ts additionalData
+// ═══════════════════════════════════════════
+
+// ── Colours ─────────────────────────────────
+$bg-base:      #0f1117;
+$surface:      #1a1d2e;
+$surface-2:    #232640;
+$border:       #2e3155;
+$border-light: #3d4170;
+
+$accent:       #6c63ff;
+$accent-dark:  #5a52d5;
+$accent-glow:  rgba(108, 99, 255, 0.25);
+
+$success:      #43e97b;
+$error:        #ff4d4f;
+$warning:      #f7971e;
+
+$text:         #e8e9f3;
+$text-muted:   #8b8fa8;
+$text-dim:     #555878;
+
+// ── Avatar palette (assigned by uid hash) ───
+$avatar-colors: #6c63ff, #ff6584, #43e97b, #f7971e, #38bdf8, #e879f9, #fb923c;
+
+// ── Typography ──────────────────────────────
+$font-sans:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+$text-xs:   11px;
+$text-sm:   13px;
+$text-base: 15px;
+$text-md:   17px;
+$text-lg:   20px;
+$text-xl:   26px;
+$text-2xl:  34px;
+
+$weight-normal:  400;
+$weight-medium:  500;
+$weight-semibold: 600;
+$weight-bold:    700;
+$weight-extrabold: 800;
+
+// ── Spacing ─────────────────────────────────
+$space-1:  4px;
+$space-2:  8px;
+$space-3:  12px;
+$space-4:  16px;
+$space-5:  20px;
+$space-6:  24px;
+$space-8:  32px;
+$space-10: 40px;
+$space-12: 48px;
+$space-16: 64px;
+
+// ── Border radius ───────────────────────────
+$radius-sm:   6px;
+$radius-md:   12px;
+$radius-lg:   18px;
+$radius-xl:   24px;
+$radius-pill: 999px;
+
+// ── Shadows ─────────────────────────────────
+$shadow-card:   0 4px 24px rgba(0, 0, 0, 0.35);
+$shadow-glow:   0 0 24px rgba(108, 99, 255, 0.3);
+$shadow-inset:  inset 0 1px 0 rgba(255,255,255,0.05);
+
+// ── Breakpoints ─────────────────────────────
+$bp-mobile:  480px;
+$bp-tablet:  768px;
+$bp-desktop: 1024px;
+
+// ── Animation ───────────────────────────────
+$ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+$ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+$dur-fast:   150ms;
+$dur-base:   250ms;
+$dur-slow:   400ms;
+$dur-xslow:  600ms;
+
+// ── Mixins ──────────────────────────────────
+@mixin mobile  { @media (max-width: #{$bp-mobile})  { @content; } }
+@mixin tablet  { @media (max-width: #{$bp-tablet})  { @content; } }
+@mixin desktop { @media (min-width: #{$bp-desktop}) { @content; } }
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px $accent-glow;
+}

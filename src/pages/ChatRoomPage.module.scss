@@ -1,0 +1,16 @@
+.room {
+  display:        flex;
+  flex-direction: column;
+  height:         100vh;
+  overflow:       hidden;
+}
+
+.loadingScreen {
+  @include flex-center;
+  flex-direction: column;
+  gap:            $space-4;
+  flex:           1;
+  height:         100vh;
+  color:          $text-muted;
+  font-size:      $text-sm;
+}

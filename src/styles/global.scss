@@ -1,0 +1,29 @@
+@use 'reset';
+@use 'variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+
+body {
+  font-family: $font-sans;
+  font-size:   $text-base;
+  color:       $text;
+  background:  $bg-base;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Scrollbar styling ────────────────────────
+::-webkit-scrollbar        { width: 6px; height: 6px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: $border; border-radius: $radius-pill; }
+::-webkit-scrollbar-thumb:hover { background: $border-light; }
+
+// ── Selection ───────────────────────────────
+::selection {
+  background: $accent-glow;
+  color: $text;
+}

@@ -1,0 +1,141 @@
+.header {
+  display:         flex;
+  align-items:     center;
+  justify-content: space-between;
+  padding:         $space-3 $space-4;
+  background:      $surface;
+  border-bottom:   1px solid $border;
+  flex-wrap:       wrap;
+  gap:             $space-3;
+  position:        sticky;
+  top:             0;
+  z-index:         10;
+}
+
+.left {
+  display:     flex;
+  align-items: center;
+  gap:         $space-3;
+}
+
+.leaveBtn {
+  @include flex-center;
+  width:         34px;
+  height:        34px;
+  border-radius: $radius-md;
+  color:         $text-muted;
+  transition:    background $dur-fast, color $dur-fast;
+
+  &:hover { background: $surface-2; color: $text; }
+}
+
+.roomLabel {
+  font-size:      $text-xs;
+  color:          $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight:    $weight-semibold;
+}
+
+.codeBtn {
+  display:     flex;
+  align-items: center;
+  gap:         $space-2;
+  background:  none;
+  border:      none;
+  cursor:      pointer;
+  padding:     0;
+}
+
+.code {
+  font-family:  $font-mono;
+  font-size:    $text-md;
+  font-weight:  $weight-bold;
+  color:        $text;
+  letter-spacing: 2px;
+}
+
+.copyHint {
+  font-size:  $text-xs;
+  color:      $accent;
+  font-weight: $weight-semibold;
+  opacity:    0.8;
+}
+
+.right {
+  display:     flex;
+  align-items: center;
+  gap:         $space-3;
+}
+
+.online {
+  display:     flex;
+  align-items: center;
+  gap:         $space-2;
+  font-size:   $text-xs;
+  color:       $text-muted;
+  font-weight: $weight-medium;
+}
+
+.dot {
+  width:         8px;
+  height:        8px;
+  border-radius: 50%;
+  background:    $success;
+  box-shadow:    0 0 6px $success;
+  animation:     pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.iconBtn {
+  @include flex-center;
+  width:         34px;
+  height:        34px;
+  border-radius: $radius-md;
+  color:         $text-muted;
+  transition:    background $dur-fast, color $dur-fast;
+
+  &:hover { background: $surface-2; color: $text; }
+  &.active { background: $accent-glow; color: $accent; }
+}
+
+// ── Search bar row ──────────────────────────
+.searchBar {
+  width:       100%;
+  display:     flex;
+  align-items: center;
+  gap:         $space-2;
+  order:       3;
+}
+
+.searchInput {
+  flex:          1;
+  background:    $surface-2;
+  border:        1px solid $border;
+  border-radius: $radius-md;
+  padding:       $space-2 $space-3;
+  color:         $text;
+  font-size:     $text-sm;
+  transition:    border-color $dur-fast, box-shadow $dur-fast;
+
+  &::placeholder { color: $text-dim; }
+
+  &:focus {
+    outline:      none;
+    border-color: $accent;
+    box-shadow:   0 0 0 3px $accent-glow;
+  }
+}
+
+.clearBtn {
+  font-size: $text-sm;
+  color:     $text-muted;
+  padding:   $space-1 $space-2;
+  border-radius: $radius-sm;
+  transition: color $dur-fast;
+  &:hover { color: $text; }
+}

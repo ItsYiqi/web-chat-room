@@ -1,0 +1,47 @@
+.wrapper {
+  display:        flex;
+  flex-direction: column;
+  gap:            $space-2;
+}
+
+.label {
+  font-size:   $text-xs;
+  font-weight: $weight-semibold;
+  color:       $text-muted;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.input {
+  width:         100%;
+  padding:       $space-3 $space-4;
+  background:    $surface-2;
+  border:        1px solid $border;
+  border-radius: $radius-md;
+  color:         $text;
+  font-size:     $text-base;
+  transition:    border-color $dur-fast, box-shadow $dur-fast;
+
+  &::placeholder { color: $text-dim; }
+
+  &:focus {
+    outline:      none;
+    border-color: $accent;
+    box-shadow:   0 0 0 3px $accent-glow;
+  }
+}
+
+.hasError .input {
+  border-color: $error;
+  &:focus { box-shadow: 0 0 0 3px rgba($error, 0.2); }
+}
+
+.error {
+  font-size: $text-xs;
+  color:     $error;
+}
+
+.hint {
+  font-size: $text-xs;
+  color:     $text-dim;
+}

@@ -1,0 +1,53 @@
+.bar {
+  display:       flex;
+  align-items:   flex-end;
+  gap:           $space-3;
+  padding:       $space-3 $space-4;
+  background:    $surface;
+  border-top:    1px solid $border;
+}
+
+.textarea {
+  flex:          1;
+  resize:        none;
+  background:    $surface-2;
+  border:        1px solid $border;
+  border-radius: $radius-md;
+  padding:       $space-3 $space-4;
+  color:         $text;
+  font-size:     $text-sm;
+  line-height:   1.5;
+  max-height:    140px;
+  overflow-y:    auto;
+  transition:    border-color $dur-fast, box-shadow $dur-fast;
+
+  &::placeholder { color: $text-dim; }
+
+  &:focus {
+    outline:      none;
+    border-color: $accent;
+    box-shadow:   0 0 0 3px $accent-glow;
+  }
+}
+
+.sendBtn {
+  @include flex-center;
+  width:         42px;
+  height:        42px;
+  border-radius: $radius-md;
+  background:    $accent;
+  color:         #fff;
+  flex-shrink:   0;
+  transition:    background $dur-fast, transform $dur-fast, box-shadow $dur-fast;
+
+  &:hover:not(:disabled) {
+    background:  $accent-dark;
+    box-shadow:  $shadow-glow;
+  }
+
+  &:active:not(:disabled) { transform: scale(0.93); }
+
+  &:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  &:focus-visible { @include focus-ring; }
+}

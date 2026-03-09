@@ -1,0 +1,20 @@
+.list {
+  flex:       1;
+  overflow-y: auto;
+  padding:    $space-4 0;
+  display:    flex;
+  flex-direction: column;
+}
+
+.empty {
+  flex:            1;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  color:           $text-muted;
+  font-size:       $text-sm;
+  text-align:      center;
+  padding:         $space-8;
+
+  strong { color: $text; }
+}
