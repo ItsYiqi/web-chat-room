@@ -1,57 +1,65 @@
 .row {
-  display:    flex;
-  gap:        $space-2;
-  padding:    $space-1 $space-4;
+  display: flex;
+  gap: $space-2;
+  padding: $space-1 $space-4;
   align-items: flex-end;
 
-  &.first { margin-top: $space-3; }
+  &.first {
+    margin-top: $space-3;
+  }
 }
 
 .avatarSlot {
-  width:      30px;
+  width: 30px;
   flex-shrink: 0;
   align-self: flex-end;
 }
 
 .content {
-  display:        flex;
+  display: flex;
   flex-direction: column;
-  gap:            2px;
-  max-width:      68%;
+  gap: 2px;
+  max-width: 68%;
 
-  @include mobile { max-width: 88%; }
+  @include mobile {
+    max-width: 88%;
+  }
 }
 
 .name {
-  font-size:   $text-xs;
+  font-size: $text-xs;
   font-weight: $weight-semibold;
-  color:       $text-muted;
+  color: $text-muted;
   padding-left: $space-2;
   margin-bottom: 2px;
 }
 
 .bubble {
-  position:      relative;
-  padding:       $space-2 $space-3;
+  position: relative;
+  padding: $space-2 $space-3;
   border-radius: $radius-lg;
-  word-break:    break-word;
-  line-height:   1.55;
+  word-break: break-word;
+  line-height: 1.55;
 
   .other & {
-    background:    $surface-2;
-    border:        1px solid $border;
+    background: $surface-2;
+    border: 1px solid $border;
     border-bottom-left-radius: $radius-sm;
   }
 
   .own & {
-    background:    $accent;
-    color:         #fff;
+    background: $accent;
+    color: #fff;
     border-bottom-right-radius: $radius-sm;
   }
 
   // Slightly more rounded on last bubble in a group
-  .last.other & { border-bottom-left-radius: $radius-lg; }
-  .last.own &   { border-bottom-right-radius: $radius-lg; }
+  .last.other & {
+    border-bottom-left-radius: $radius-lg;
+  }
+  .last.own & {
+    border-bottom-right-radius: $radius-lg;
+  }
 }
 
 .text {
@@ -59,16 +67,17 @@
 }
 
 .time {
-  display:    block;
-  font-size:  10px;
+  display: block;
+  font-size: 10px;
   margin-top: $space-1;
-  opacity:    0.5;
+  opacity: 0.5;
   text-align: right;
 }
 
 // Own messages float right
 .own {
   flex-direction: row-reverse;
-
-  .content { align-items: flex-end; }
+  .content {
+    align-items: flex-end;
+  }
 }
