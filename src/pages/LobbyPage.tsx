@@ -1,4 +1,4 @@
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Input';
@@ -8,7 +8,15 @@ import styles from './LobbyPage.module.scss';
 
 export default function LobbyPage() {
   const navigate = useNavigate();
-  const { uid, displayName, setDisplayName, setRoomCode } = useUserStore();
+  const { uid, displayName, setDisplayName, setRoomCode, roomCode } =
+    useUserStore();
+
+  // If the user already has a session, skip the lobby and go straight to the room
+  useEffect(() => {
+    if (displayName && roomCode) {
+      navigate(`/room/${roomCode}`, { replace: true });
+    }
+  }, [displayName, roomCode, navigate]);
 
   const [name, setName] = useState(displayName ?? '');
   const [code, setCode] = useState('');
@@ -79,8 +87,7 @@ export default function LobbyPage() {
         {/* Header */}
         <div className={styles.hero}>
           <div className={styles.logoMark}>💬</div>
-          <h1 className={styles.title}>Monash Chat</h1>
-          <p className={styles.sub}>Real-time rooms, zero friction.</p>
+          <h1 className={styles.title}>Chat Room Web</h1>
         </div>
 
         {/* Name field */}

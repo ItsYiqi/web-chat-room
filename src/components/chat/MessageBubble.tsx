@@ -9,26 +9,31 @@ interface Props {
   isLast: boolean; // last in a group — show rounded bottom corner
 }
 
-export default function MessageBubble({ message, isOwn, isFirst }: Props) {
+export default function MessageBubble({ message, isOwn, isFirst, isLast }: Props) {
   const time = new Date(message.sentAt).toLocaleTimeString([], {
     hour: '2-digit',
     minute: '2-digit',
   });
 
+  const rowClass = [
+    styles.row,
+    isOwn ? styles.own : styles.other,
+    isFirst ? styles.first : '',
+    isLast  ? styles.last  : '',
+  ].filter(Boolean).join(' ');
+
   return (
-    <>
-      {/* Avatar — only show on first message in group, other side only */}
-      {!isOwn && (
-        <div className={styles.avatarSlot}>
-          {isFirst && (
-            <Avatar
-              userId={message.userId}
-              displayName={message.displayName}
-              size={30}
-            />
-          )}
-        </div>
-      )}
+    <div className={rowClass}>
+      {/* Avatar — show on first message in group for both own and other users */}
+      <div className={styles.avatarSlot}>
+        {isFirst && (
+          <Avatar
+            userId={message.userId}
+            displayName={message.displayName}
+            size={30}
+          />
+        )}
+      </div>
 
       <div className={styles.content}>
         {!isOwn && isFirst && (
@@ -39,6 +44,6 @@ export default function MessageBubble({ message, isOwn, isFirst }: Props) {
           <span className={styles.time}>{time}</span>
         </div>
       </div>
-    </>
+    </div>
   );
 }
